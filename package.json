@@ -1,6 +1,6 @@
 {
   "name": "s-dom",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "DOM method shortcuts",
   "main": "index.js",
   "directories": {

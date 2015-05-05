@@ -1,0 +1,45 @@
+{
+  "name": "s-dom",
+  "version": "0.0.0",
+  "description": "DOM method shortcuts",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha",
+    "coverage_html": "mocha --require blanket -R html-cov > etc/coverage.html",
+    "coverage": "mocha --require blanket --reporter mocha-lcov-reporter > etc/lcov.info"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebastiansandqvist/s-dom.git"
+  },
+  "keywords": [
+    "frontend",
+    "client",
+    "dom",
+    "document",
+    "javascript",
+    "utilities"
+  ],
+  "author": "sebastian sandqvist",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sebastiansandqvist/s-dom/issues"
+  },
+  "homepage": "https://github.com/sebastiansandqvist/s-dom",
+  "devDependencies": {
+    "blanket": "^1.1.6",
+    "chai": "^2.3.0",
+    "codeclimate-test-reporter": "0.0.4",
+    "gulp": "^3.8.11",
+    "gulp-jshint": "^1.10.0",
+    "gulp-mocha": "^2.0.1",
+    "jsdom": "^5.3.0",
+    "jshint-stylish": "^1.0.2",
+    "mocha": "^2.2.4",
+    "mocha-lcov-reporter": "0.0.2"
+  },
+  "dependencies": {}
+}

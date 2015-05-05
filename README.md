@@ -1,5 +1,9 @@
-# s-dom 
-[![NPM version](https://img.shields.io/npm/v/s-dom.svg)](https://www.npmjs.com/package/s-dom) ![Dependencies](https://img.shields.io/david/sebastiansandqvist/s-dom.svg) [![build status](http://img.shields.io/travis/sebastiansandqvist/s-dom.svg)](https://travis-ci.org/sebastiansandqvist/s-dom) [![NPM license](https://img.shields.io/npm/l/s-dom.svg)](https://www.npmjs.com/package/s-dom)
+# s-dom
+
+## Work in progress
+
+[![NPM version](https://img.shields.io/npm/v/s-dom.svg)](https://www.npmjs.com/package/s-dom) ![Dependencies](https://img.shields.io/david/sebastiansandqvist/s-dom.svg) [![build status](http://img.shields.io/travis/sebastiansandqvist/s-dom.svg)](https://travis-ci.org/sebastiansandqvist/s-dom) [![NPM license](https://img.shields.io/npm/l/s-dom.svg)](https://www.npmjs.com/package/s-dom) ![Stability](https://img.shields.io/badge/stability-unstable-orange.svg) [![Test Coverage](https://codeclimate.com/github/sebastiansandqvist/s-dom/badges/coverage.svg)](https://codeclimate.com/github/sebastiansandqvist/s-dom)
+
 ## License
 Copyright (c) 2015, Sebastian Sandqvist <s.github@sparque.me>
 

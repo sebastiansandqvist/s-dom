@@ -1,6 +1,6 @@
 {
-  "name": "s-dom",
-  "version": "0.0.2",
+  "name": "s-query",
+  "version": "0.0.1",
   "description": "DOM method shortcuts",
   "main": "index.js",
   "directories": {
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sebastiansandqvist/s-dom.git"
+    "url": "https://github.com/sebastiansandqvist/s-query.git"
   },
   "keywords": [
     "frontend",
@@ -27,9 +27,9 @@
   "author": "sebastian sandqvist",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sebastiansandqvist/s-dom/issues"
+    "url": "https://github.com/sebastiansandqvist/s-query/issues"
   },
-  "homepage": "https://github.com/sebastiansandqvist/s-dom",
+  "homepage": "https://github.com/sebastiansandqvist/s-query",
   "devDependencies": {
     "blanket": "1.1.6",
     "chai": "^2.3.0",

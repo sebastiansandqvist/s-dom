@@ -8,9 +8,10 @@
   },
   "scripts": {
     "test": "mocha",
+    "lint": "jscs index.js --config=./etc/.jscs.json && jshint --reporter=node_modules/jshint-stylish index.js --config ./etc/.jshint.json",
     "coverage_html": "mocha --require blanket -R html-cov > etc/coverage.html",
     "coverage": "mocha --require blanket --reporter mocha-lcov-reporter > etc/lcov.info",
-    "all": "mocha && gulp && npm run coverage_html && npm run coverage"
+    "all": "mocha && npm run coverage_html && npm run coverage && npm run lint"
   },
   "repository": {
     "type": "git",
@@ -34,8 +35,7 @@
     "blanket": "1.1.6",
     "chai": "^2.3.0",
     "codeclimate-test-reporter": "0.0.4",
-    "gulp": "^3.9.0",
-    "gulp-jshint": "^1.11.0",
+    "jscs": "^1.13.1",
     "jsdom": "^5.4.3",
     "jshint": "^2.8.0",
     "jshint-stylish": "^2.0.0",

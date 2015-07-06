@@ -90,7 +90,7 @@ function toArray(nodeList) {
 	var i = nodeList.length;
 	var arr = [];
 	
-	while(i--) {
+	while (i--) {
 		arr.unshift(nodeList[i]);
 	}
 

@@ -171,6 +171,60 @@ describe('append', function() {
 
 });
 
+// ----- empty
+// ---------------------------------------
+describe('empty', function() {
+
+	it('should remove innerHTML from an element', function() {
+
+		// setup
+		var parent = document.createElement('div');
+		var child = document.createElement('span');
+		parent.id = 'empty';
+		parent.appendChild(child);
+		document.body.appendChild(parent);
+		var htmlBefore = document.documentElement.innerHTML;
+		var q = query('#empty').empty();
+		var htmlAfter = document.documentElement.innerHTML;
+
+		// test
+		expect(htmlBefore).to.include('<div id="empty"><span></span></div>');
+		expect(htmlAfter).to.include('<div id="empty"></div>');
+
+		// teardown
+		parent.parentNode.removeChild(parent);
+
+	});
+
+	it('should remove innerHTML from multiple elements', function() {
+
+		// setup
+		var parent1 = document.createElement('div');
+		var parent2 = document.createElement('div');
+		var child1 = document.createElement('span');
+		var child2 = document.createElement('span');
+		parent1.className = 'empty';
+		parent2.className = 'empty';
+		parent1.appendChild(child1);
+		parent2.appendChild(child2);
+		document.body.appendChild(parent1);
+		document.body.appendChild(parent2);
+		var htmlBefore = document.documentElement.innerHTML;
+		var q = query('.empty').empty();
+		var htmlAfter = document.documentElement.innerHTML;
+
+		// test
+		expect(htmlBefore).to.include('<div class="empty"><span></span></div><div class="empty"><span></span></div>');
+		expect(htmlAfter).to.include('<div class="empty"></div><div class="empty"></div>');
+
+		// teardown
+		parent1.parentNode.removeChild(parent1);
+		parent2.parentNode.removeChild(parent2);
+
+	});
+
+});
+
 // ----- show / hide / toggle
 // ---------------------------------------
 describe('show', function() {

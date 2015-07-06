@@ -38,6 +38,16 @@ Query.prototype = {
 
 	},
 
+	empty: function() {
+
+		this.each(function(el) {
+			el.innerHTML = '';
+		});
+
+		return this;
+
+	},
+
 	hide: function() {
 
 		this.each(function(el) {

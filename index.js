@@ -38,6 +38,16 @@ Query.prototype = {
 
 	},
 
+	clone: function() {
+
+		// this.each(function(el) {
+		// 	el.cloneNode(true);
+		// });
+
+		return this;
+
+	},
+
 	hide: function() {
 
 		this.each(function(el) {

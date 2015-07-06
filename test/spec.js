@@ -171,21 +171,6 @@ describe('append', function() {
 
 });
 
-describe('clone', function() {
-
-	it('should clone an element', function() {
-
-		// setup
-		var el = document.createElement('div');
-		el.id = 'clone';
-		console.log(document.documentElement.innerHTML);
-		var q = query('#clone').clone().hide();
-		console.log(document.documentElement.innerHTML);
-
-	});
-
-});
-
 // ----- show / hide / toggle
 // ---------------------------------------
 describe('show', function() {

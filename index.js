@@ -36,6 +36,35 @@ Query.prototype = {
 
 		return this;
 
+	},
+
+	hide: function() {
+
+		this.each(function(el) {
+			el.style.display = 'none';
+		});
+
+		return this;
+
+	},
+
+	show: function() {
+
+		this.each(function(el) {
+			el.style.display = '';
+		});
+
+		return this;
+	},
+
+	toggle: function() {
+
+		this.each(function(el) {
+			el.style.display = el.style.display === 'none' ? '' : 'none';
+		});
+
+		return this;
+
 	}
 
 	// --------------------------------- traversal ---------------------------------

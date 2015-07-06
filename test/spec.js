@@ -171,13 +171,208 @@ describe('append', function() {
 
 });
 
+// ----- show / hide / toggle
+// ---------------------------------------
+describe('show', function() {
+
+	it('should show a hidden element', function() {
+
+		// setup
+		var el = document.createElement('div');
+		el.id = 'show';
+		el.style.display = 'none';
+		document.body.appendChild(el);
+		var q = query('#show').show();
+
+		// test
+		expect(q.el[0].style.display).to.equal('');
+
+		// teardown
+		el.parentNode.removeChild(el);
+
+	});
+
+	it('should show hidden elements', function() {
+
+		// setup
+		var el1 = document.createElement('div');
+		var el2 = document.createElement('span');
+		el1.className = 'show';
+		el2.className = 'show';
+		el1.style.display = 'none';
+		el2.style.display = 'none';
+		document.body.appendChild(el1);
+		document.body.appendChild(el2);
+		var q = query('.show').show();
+
+		// test
+		expect(q.el.length).to.equal(2);
+		expect(q.el[0].style.display).to.equal('');
+		expect(q.el[1].style.display).to.equal('');
+
+		// teardown
+		el1.parentNode.removeChild(el1);
+		el2.parentNode.removeChild(el2);
+
+	});
+
+	it('should hide an element', function() {
+		
+		// setup
+		var el = document.createElement('div');
+		el.id = 'hide';
+		document.body.appendChild(el);
+		var q = query('#hide').hide();
+
+		// test
+		expect(q.el[0].style.display).to.equal('none');
+
+		// teardown
+		el.parentNode.removeChild(el);
+
+	});
+
+	it('should hide elements', function() {
+
+		// setup
+		var el1 = document.createElement('div');
+		var el2 = document.createElement('span');
+		el1.className = 'hide';
+		el2.className = 'hide';
+		document.body.appendChild(el1);
+		document.body.appendChild(el2);
+		var q = query('.hide').hide();
+
+		// test
+		expect(q.el.length).to.equal(2);
+		expect(q.el[0].style.display).to.equal('none');
+		expect(q.el[1].style.display).to.equal('none');
+
+		// teardown
+		el1.parentNode.removeChild(el1);
+		el2.parentNode.removeChild(el2);
+
+	});
+
+		it('should toggle an element', function() {
+		
+		// setup
+		var el = document.createElement('div');
+		el.id = 'toggle';
+		document.body.appendChild(el);
+		var q = query('#toggle').toggle();
+
+		// test
+		expect(q.el[0].style.display).to.equal('none');
+		q.toggle();
+		expect(q.el[0].style.display).to.equal('');
+
+		// teardown
+		el.parentNode.removeChild(el);
+
+	});
+
+	it('should toggle elements', function() {
+
+		// setup
+		var el1 = document.createElement('div');
+		var el2 = document.createElement('span');
+		el1.style.display = 'none';
+		el1.className = 'toggle';
+		el2.className = 'toggle';
+		document.body.appendChild(el1);
+		document.body.appendChild(el2);
+		var q = query('.toggle').toggle();
+
+		// test
+		expect(q.el[0].style.display).to.equal('');
+		expect(q.el[1].style.display).to.equal('none');
+		q.toggle();
+		expect(q.el[0].style.display).to.equal('none');
+		expect(q.el[1].style.display).to.equal('');
+
+		// teardown
+		el1.parentNode.removeChild(el1);
+		el2.parentNode.removeChild(el2);
+
+	});
+
+});
+
 
 // ----- each
 // ---------------------------------------
 describe('each', function() {
-	it('0 matches: should do nothing');
-	it('1 match: should call function for matched item');
-	it('2 matches: should call function for matched items');
+
+	it('0 matches: should do nothing', function() {
+		
+		// setup
+		var html = document.documentElement.innerHTML;
+		query('#doesNotExist').each(function(el) {
+			el.appendChild('div');
+			document.body.appendChild(el);
+		});
+
+		// test
+		expect(html).to.equal(document.documentElement.innerHTML);
+
+	});
+
+	it('1 match: should call function for matched item', function() {
+
+		// setup
+		var el = document.createElement('div');
+		el.id = 'single';
+		document.body.appendChild(el);
+		var htmlBefore = document.documentElement.innerHTML;
+		query('#single').each(function(el) {
+			el.style.display = 'none';
+		});
+		var htmlAfter = document.documentElement.innerHTML;
+
+		// test
+		expect(htmlBefore).to.not.equal(htmlAfter);
+		expect(htmlBefore).to.not.include('none');
+		expect(htmlAfter).to.include('none');
+
+		// teardown
+		el.parentNode.removeChild(el);
+
+	});
+
+	it('2 matches: should call function for matched items', function() {
+
+		// setup
+		var el1 = document.createElement('div');
+		var el2 = document.createElement('span');
+		el1.className = 'multiple';
+		el2.className = 'multiple';
+		document.body.appendChild(el1);
+		document.body.appendChild(el2);
+		var htmlBefore = document.documentElement.innerHTML;
+		var count = 0;
+
+		// test
+		query('.multiple').each(function(el, i) {
+			el.style.display = 'none';
+			count++;
+			expect(i).to.be.at.least(0);
+			expect(i).to.be.at.most(1);
+		});
+		var htmlAfter = document.documentElement.innerHTML;
+		var nones = htmlAfter.match(/none/g);
+		expect(count).to.equal(2);
+		expect(nones.length).to.equal(2);
+		expect(htmlBefore).to.not.equal(htmlAfter);
+		expect(htmlBefore).to.not.include('none');
+		expect(htmlAfter).to.include('none');
+
+		// teardown
+		el1.parentNode.removeChild(el1);
+		el2.parentNode.removeChild(el2);
+
+	});
+
 });
 
 
